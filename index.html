@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sunilraj D — AI/ML Engineer</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Plus+Jakarta+Sans:wght@700;800&family=Playfair+Display:ital,wght@1,700&family=Space+Grotesk:wght@700&family=Outfit:wght@800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -34,7 +34,20 @@ section{position:relative;z-index:1}
 .hero-tag{font-family:var(--mono);font-size:0.8rem;color:var(--teal);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
 .hero-tag::before{content:'';display:inline-block;width:2rem;height:1px;background:var(--teal)}
 .hero-name{font-family:var(--display);font-size:clamp(3.5rem,7vw,6rem);font-weight:800;line-height:0.95;letter-spacing:-0.04em;margin-bottom:1rem}
-.hero-name .line2{color:var(--accent2);display:block}
+.hero-name .line2{color:var(--accent2);display:block;font-family:var(--display);font-weight:800}
+
+/* Typed name */
+#typed-name{display:inline;font-size:clamp(3.5rem,7vw,6rem);line-height:0.95;letter-spacing:-0.04em}
+.cursor-blink{color:var(--accent2);font-weight:200;font-size:clamp(3rem,6vw,5.5rem);animation:blink 0.75s step-end infinite;margin-left:1px;vertical-align:baseline;line-height:1;font-family:var(--sans)}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+.font-syne      {font-family:'Syne',sans-serif;font-weight:800;letter-spacing:-0.04em}
+.font-jakarta   {font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;letter-spacing:-0.03em}
+.font-playfair  {font-family:'Playfair Display',serif;font-weight:700;font-style:italic;letter-spacing:0em}
+.font-space     {font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-0.05em}
+.font-outfit    {font-family:'Outfit',sans-serif;font-weight:800;letter-spacing:-0.03em}
+.font-mono-dm   {font-family:'DM Mono',monospace;font-weight:400;letter-spacing:-0.02em}
+
 .hero-desc{font-size:1.1rem;color:var(--text2);max-width:520px;line-height:1.75;margin-bottom:2.5rem;font-weight:300}
 .hero-desc strong{color:var(--text);font-weight:500}
 .hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
@@ -93,14 +106,11 @@ section{position:relative;z-index:1}
 .skill-tag{font-family:var(--mono);font-size:0.7rem;padding:0.25rem 0.6rem;border-radius:3px;background:var(--bg3);color:var(--text2);border:1px solid var(--border)}
 #projects{padding:6rem 0}
 .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
-
-/* Base card — no overflow:hidden so strip can slide outside */
 .project-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;transition:border-color 0.3s,transform 0.3s;position:relative;cursor:default}
 .project-card:hover{border-color:var(--accent);transform:translateY(-3px)}
 .project-card.featured{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;gap:0}
 .project-card-body{padding:2rem}
 .project-card.featured .project-card-body{padding:2rem}
-
 .project-num{font-family:var(--mono);font-size:0.7rem;color:var(--text3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem}
 .project-title{font-family:var(--display);font-size:1.2rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:-0.02em;line-height:1.2}
 .project-desc{font-size:0.88rem;color:var(--text2);line-height:1.65;margin-bottom:1.25rem}
@@ -112,27 +122,19 @@ section{position:relative;z-index:1}
 .project-link{font-family:var(--mono);font-size:0.75rem;color:var(--accent2);text-decoration:none;display:flex;align-items:center;gap:0.3rem;letter-spacing:0.05em;transition:color 0.2s}
 .project-link:hover{color:var(--text)}
 .project-badge{position:absolute;top:1.25rem;right:1.25rem;font-family:var(--mono);font-size:0.65rem;padding:0.2rem 0.6rem;border-radius:3px;background:rgba(45,212,191,0.1);color:var(--teal);border:1px solid rgba(45,212,191,0.2);letter-spacing:0.05em}
-
-/* Results toggle button */
 .results-toggle{display:flex;align-items:center;gap:0.5rem;margin-top:1.25rem;padding:0.5rem 0;background:none;border:none;border-top:1px solid var(--border);width:100%;cursor:pointer;font-family:var(--mono);font-size:0.72rem;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
 .results-toggle:hover{color:var(--accent2)}
 .results-toggle .toggle-icon{font-size:0.7rem;transition:transform 0.35s ease;display:inline-block}
 .results-toggle.open{color:var(--accent2)}
 .results-toggle.open .toggle-icon{transform:rotate(180deg)}
-
-/* Accordion strip */
 .results-strip{max-height:0;overflow:hidden;transition:max-height 0.5s cubic-bezier(0.4,0,0.2,1)}
 .results-strip.open{max-height:600px}
 .results-strip-inner{padding:1rem 2rem 1.5rem}
 .results-strip-inner .result-label{font-family:var(--mono);font-size:0.68rem;color:var(--teal);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.75rem}
 .results-strip-inner img{width:100%;border-radius:6px;border:1px solid var(--border2);display:block;background:var(--bg3)}
-
-/* LLM dual image */
 .llm-dual-strip{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem}
 .llm-dual-strip img{width:100%;border-radius:6px;border:1px solid var(--border2);display:block}
 .llm-dual-label{font-family:var(--mono);font-size:0.65rem;color:var(--text3);text-align:center;margin-top:0.4rem}
-
-/* Featured card right visual panel */
 .project-card.featured .project-visual{background:var(--bg3);border-radius:0 8px 8px 0;border-left:1px solid var(--border);display:flex;align-items:center;justify-content:center;min-height:260px;position:relative;overflow:hidden}
 .visual-bars{display:flex;align-items:flex-end;gap:8px;height:120px;padding:1rem}
 .bar{background:linear-gradient(to top,var(--accent),var(--accent2));border-radius:3px 3px 0 0;opacity:0.8}
@@ -147,8 +149,6 @@ section{position:relative;z-index:1}
 .edu-cgpa-label{font-family:var(--mono);font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.3rem}
 .edu-courses{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1.25rem}
 .edu-course{font-family:var(--mono);font-size:0.7rem;padding:0.2rem 0.6rem;border-radius:3px;background:var(--bg3);color:var(--text2);border:1px solid var(--border)}
-
-/* ── CERTIFICATES ── */
 #certs{padding:3rem 0 6rem}
 .certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem}
 .cert-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.5rem;transition:all 0.25s;cursor:pointer;position:relative;overflow:hidden}
@@ -160,8 +160,6 @@ section{position:relative;z-index:1}
 .cert-detail{font-family:var(--mono);font-size:0.72rem;color:var(--text3);margin-bottom:1rem}
 .cert-preview{width:100%;height:120px;border-radius:5px;object-fit:cover;border:1px solid var(--border2);display:block}
 .cert-view-hint{font-family:var(--mono);font-size:0.68rem;color:var(--accent);margin-top:0.6rem;letter-spacing:0.05em;display:flex;align-items:center;gap:0.3rem}
-
-/* ── MODAL ── */
 .modal-overlay{position:fixed;inset:0;background:rgba(5,5,10,0.92);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s;backdrop-filter:blur(8px)}
 .modal-overlay.open{opacity:1;pointer-events:all}
 .modal-box{background:var(--surface);border:1px solid var(--border2);border-radius:12px;padding:2rem;max-width:860px;width:90%;max-height:90vh;overflow-y:auto;position:relative;transform:scale(0.95);transition:transform 0.3s}
@@ -177,7 +175,6 @@ section{position:relative;z-index:1}
 .modal-nav-btn:hover{border-color:var(--accent);color:var(--accent2)}
 .modal-nav-btn:disabled{opacity:0.3;cursor:not-allowed}
 .modal-counter{font-family:var(--mono);font-size:0.75rem;color:var(--text3)}
-
 #contact{padding:8rem 0;text-align:center}
 .contact-inner{max-width:600px;margin:0 auto}
 .contact-title{font-family:var(--display);font-size:clamp(2.5rem,5vw,4rem);font-weight:800;letter-spacing:-0.04em;line-height:1;margin-bottom:1.25rem}
@@ -209,7 +206,6 @@ footer{border-top:1px solid var(--border);padding:2rem 4rem;display:flex;justify
 <div id="cursor-ring"></div>
 <div class="glow-blob" id="glow"></div>
 
-<!-- CERTIFICATE MODAL -->
 <div class="modal-overlay" id="certModal">
   <div class="modal-box">
     <button class="modal-close" id="modalClose">✕</button>
@@ -236,23 +232,23 @@ footer{border-top:1px solid var(--border);padding:2rem 4rem;display:flex;justify
     <li><a href="#contact">contact</a></li>
   </ul>
   <div style="display:flex;gap:0.8rem;align-items:center">
-  <a href="resume.pdf" target="_blank" class="btn-ghost">Resume ↗</a>
-  <a href="mailto:sunilraj200518@gmail.com" class="nav-cta">Hire Me ↗</a>
-</div>
+    <a href="resume.pdf" target="_blank" class="btn-ghost">Resume ↗</a>
+    <a href="mailto:sunilraj200518@gmail.com" class="nav-cta">Hire Me ↗</a>
+  </div>
 </nav>
 
 <section id="hero">
   <div style="max-width:1400px;margin:0 auto;padding:0;display:flex;align-items:center;justify-content:space-between;width:100%">
     <div class="hero-content reveal">
       <div class="hero-tag">Available for opportunities</div>
-      <h1 class="hero-name">Sunilraj D<span class="line2">AI/ML Engineer</span></h1>
+      <h1 class="hero-name"><span id="typed-name" class="font-syne"></span><span class="cursor-blink">|</span><span class="line2">AI/ML Engineer</span></h1>
       <p class="hero-desc">Aspiring AI/ML Engineer passionate about building <strong>intelligent systems</strong>, solving real-world problems, and turning data into <strong>impactful solutions</strong>.</p>
       <div class="hero-btns">
         <a href="#projects" class="btn-primary">View Projects ↓</a>
         <a href="mailto:sunilraj200518@gmail.com" class="btn-ghost">Get In Touch →</a>
       </div>
       <div class="hero-stats">
-        <div class="stat-item"><div class="stat-num">5<span>+</span></div><div class="stat-label">ML Projects</div></div>
+        <div class="stat-item"><div class="stat-num">6<span>+</span></div><div class="stat-label">ML Projects</div></div>
         <div class="stat-item"><div class="stat-num">98<span>%</span></div><div class="stat-label">Best Accuracy</div></div>
         <div class="stat-item"><div class="stat-num">1<span>×</span></div><div class="stat-label">Research Paper</div></div>
         <div class="stat-item"><div class="stat-num">7.64</div><div class="stat-label">CGPA</div></div>
@@ -325,10 +321,82 @@ footer{border-top:1px solid var(--border);padding:2rem 4rem;display:flex;justify
     </div>
     <div class="projects-grid">
 
-      <!-- EV PROJECT — FEATURED -->
+      <div class="project-card featured reveal" style="margin-top:1.5rem">
+        <div class="project-card-body">
+          <div class="project-num">01</div>
+          <div class="project-title">Intelligent Warehouse Management System</div>
+          <div class="project-desc">Production-grade warehouse app built during TAFE internship, replacing a handwritten logbook + bi-monthly Excel transcription workflow. Features K-Means clustering (k=3) for auto-classifying parts into Fast/Slow/Rare, a weighted scoring system for dynamic shelf placement, and real-time low-stock alerts — all via a live Streamlit interface.</div>
+          <div class="project-metrics">
+            <span class="metric">K-Means k=3</span>
+            <span class="metric">Elbow + Silhouette validated</span>
+            <span class="metric">TAFE Internship</span>
+          </div>
+          <div class="project-stack"><span class="stack-tag">Python</span><span class="stack-tag">Streamlit</span><span class="stack-tag">K-Means</span><span class="stack-tag">Scikit-learn</span><span class="stack-tag">Pandas</span><span class="stack-tag">Plotly</span></div>
+          <div class="project-links">
+            <a href="https://warehouse-management-system.streamlit.app/" class="project-link" target="_blank">Live Demo ↗</a>
+            <a href="https://github.com/sunilraj180805/warehouse-management-system" class="project-link" target="_blank">GitHub ↗</a>
+          </div>
+          <button class="results-toggle" data-target="wms-strip"><span class="toggle-icon">▼</span>&nbsp; See Results</button>
+        </div>
+        <div class="project-visual">
+          <div style="padding:1.5rem;text-align:center">
+            <div style="font-family:var(--mono);font-size:0.7rem;color:var(--text3);margin-bottom:1.25rem;letter-spacing:0.08em;text-transform:uppercase">Scoring Formula</div>
+            <div style="font-family:var(--mono);font-size:0.78rem;color:var(--accent3);background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:0.75rem 1rem;margin-bottom:1.25rem;text-align:left;line-height:1.8">
+              score = (frequency × <span style="color:var(--teal)">weight</span>) − (days_inactive × <span style="color:var(--coral)">decay</span>)
+            </div>
+            <div style="display:flex;flex-direction:column;gap:0.5rem;text-align:left">
+              <div style="display:grid;grid-template-columns:1fr auto auto;gap:0.5rem;align-items:center;font-family:var(--mono);font-size:0.68rem;color:var(--text3);padding-bottom:0.4rem;border-bottom:1px solid var(--border)">
+                <span>Movement Type</span><span>Weight</span><span>Decay</span>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr auto auto;gap:0.5rem;align-items:center;font-family:var(--mono);font-size:0.68rem">
+                <span style="color:var(--green)">⚡ Fast Moving</span><span style="color:var(--green)">1.5×</span><span style="color:var(--text3)">0.5/day</span>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr auto auto;gap:0.5rem;align-items:center;font-family:var(--mono);font-size:0.68rem">
+                <span style="color:var(--amber)">〜 Slow Moving</span><span style="color:var(--amber)">1.0×</span><span style="color:var(--text3)">0.3/day</span>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr auto auto;gap:0.5rem;align-items:center;font-family:var(--mono);font-size:0.68rem">
+                <span style="color:var(--text3)">○ Rare Moving</span><span style="color:var(--text3)">0.5×</span><span style="color:var(--text3)">0.1/day</span>
+              </div>
+            </div>
+            <div style="margin-top:1.25rem;font-family:var(--mono);font-size:0.68rem;color:var(--text3);line-height:1.6;text-align:left">Higher score → closer shelf to dispatch.<br>Parts re-ranked & rearranged with one click.</div>
+          </div>
+        </div>
+        <div class="results-strip" id="wms-strip" style="grid-column:span 2;background:var(--bg3);border-top:1px solid var(--border);border-radius:0 0 8px 8px">
+          <div class="results-strip-inner">
+            <div class="result-label">System Architecture — from Handwritten Logbook to Live Dashboard</div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;font-family:var(--mono);font-size:0.72rem;text-align:center;padding:0.5rem 0">
+              <div style="padding:0.75rem;background:var(--surface);border:1px solid var(--border2);border-radius:6px">
+                <div style="color:var(--teal);font-size:1.1rem;margin-bottom:0.4rem">📊</div>
+                <div style="color:var(--text2);margin-bottom:0.3rem">Dashboard</div>
+                <div style="color:var(--text3);font-size:0.65rem">Live stock alerts<br>Top 5 usage</div>
+              </div>
+              <div style="padding:0.75rem;background:var(--surface);border:1px solid var(--border2);border-radius:6px">
+                <div style="color:var(--accent2);font-size:1.1rem;margin-bottom:0.4rem">🔍</div>
+                <div style="color:var(--text2);margin-bottom:0.3rem">Search & Issue</div>
+                <div style="color:var(--text3);font-size:0.65rem">Auto stock decrement<br>Usage log update</div>
+              </div>
+              <div style="padding:0.75rem;background:var(--surface);border:1px solid var(--border2);border-radius:6px">
+                <div style="color:var(--amber);font-size:1.1rem;margin-bottom:0.4rem">🔁</div>
+                <div style="color:var(--text2);margin-bottom:0.3rem">Recommendations</div>
+                <div style="color:var(--text3);font-size:0.65rem">Shelf rearrangement<br>UP / DOWN / NEW</div>
+              </div>
+              <div style="padding:0.75rem;background:var(--surface);border:1px solid var(--border2);border-radius:6px">
+                <div style="color:var(--green);font-size:1.1rem;margin-bottom:0.4rem">📈</div>
+                <div style="color:var(--text2);margin-bottom:0.3rem">Analytics</div>
+                <div style="color:var(--text3);font-size:0.65rem">Monthly trends<br>Warehouse map</div>
+              </div>
+            </div>
+            <div style="text-align:center;margin-top:0.75rem">
+              <a href="https://warehouse-management-system.streamlit.app/" target="_blank" style="font-family:var(--mono);font-size:0.75rem;color:var(--teal);text-decoration:none;border:1px solid rgba(45,212,191,0.3);padding:0.4rem 1rem;border-radius:4px;display:inline-block">🚀 Try the Live Demo ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
       <div class="project-card featured reveal">
         <div class="project-card-body">
-          <div class="project-num">01 — Featured</div>
+          <div class="project-num">02</div>
           <div class="project-title">Zero-Shot EV Energy Prediction via NLP Knowledge Transfer</div>
           <div class="project-desc">Developed a zero-shot prediction system that estimates EV energy consumption from owner manuals alone — no historical driving data required. Combined BERT-based knowledge extraction with LSTM and XGBoost trained on 5,000 sensor records.</div>
           <div class="project-metrics"><span class="metric">R² 0.9394</span><span class="metric">2.6% error</span><span class="metric">5,000 records</span></div>
@@ -340,7 +408,6 @@ footer{border-top:1px solid var(--border);padding:2rem 4rem;display:flex;justify
           <div class="visual-bars" id="ev-bars"></div>
           <div class="visual-label">R² improvement across models</div>
         </div>
-        <!-- Strip spans full width below both columns -->
         <div class="results-strip" id="ev-strip" style="grid-column:span 2;background:var(--bg3);border-top:1px solid var(--border);border-radius:0 0 8px 8px">
           <div class="results-strip-inner">
             <div class="result-label">All Models R² Score Ranking — NLP-Enhanced vs Structured Only</div>
@@ -349,11 +416,10 @@ footer{border-top:1px solid var(--border);padding:2rem 4rem;display:flex;justify
         </div>
       </div>
 
-      <!-- ALZHEIMER'S -->
       <div class="project-card featured reveal">
         <div class="project-badge">Research Paper</div>
         <div class="project-card-body">
-          <div class="project-num">02</div>
+          <div class="project-num">03</div>
           <div class="project-title">Alzheimer's MRI Classification — Hybrid CNN + Ensemble</div>
           <div class="project-desc">Two-stage hybrid pipeline: CNN for deep feature extraction from MRI scans, followed by a stacking ensemble for 4-class impairment classification. Published as a research paper.</div>
           <div class="project-metrics"><span class="metric">90.77% accuracy</span><span class="metric">ROC-AUC 0.9826</span></div>
@@ -395,10 +461,9 @@ footer{border-top:1px solid var(--border);padding:2rem 4rem;display:flex;justify
         </div>
       </div>
 
-      <!-- LUNG UNET -->
       <div class="project-card featured reveal reveal-delay-1">
         <div class="project-card-body">
-          <div class="project-num">03</div>
+          <div class="project-num">04</div>
           <div class="project-title">Attention-Enhanced UNet for Lung Tumor Segmentation</div>
           <div class="project-desc">Attention Gate UNet for lung tumor segmentation on 14K+ CT slices with a custom Hybrid Loss (Dice + Focal + Boundary) to tackle severe class imbalance and sharpen boundaries.</div>
           <div class="project-metrics"><span class="metric">Dice 0.9456</span><span class="metric">Precision 0.9523</span><span class="metric">14K+ slices</span></div>
@@ -435,10 +500,9 @@ footer{border-top:1px solid var(--border);padding:2rem 4rem;display:flex;justify
         </div>
       </div>
 
-      <!-- LLM PIPELINE -->
       <div class="project-card featured reveal reveal-delay-2">
         <div class="project-card-body">
-          <div class="project-num">04</div>
+          <div class="project-num">05</div>
           <div class="project-title">LLM-Powered Document Structuring Pipeline</div>
           <div class="project-desc">Fully automated pipeline to extract structured data from unstructured PDFs into JSON/Excel using Google Gemini API with custom prompt engineering and a normalization layer.</div>
           <div class="project-metrics"><span class="metric">60+ records/doc</span><span class="metric">Gemini API</span></div>
@@ -478,10 +542,10 @@ footer{border-top:1px solid var(--border);padding:2rem 4rem;display:flex;justify
           </div>
         </div>
       </div>
-      <!-- STOCK PREDICTION -->
+
       <div class="project-card featured reveal" style="margin-top:1.5rem">
         <div class="project-card-body">
-          <div class="project-num">05</div>
+          <div class="project-num">06</div>
           <div class="project-title">Stock Price Prediction using LSTM</div>
           <div class="project-desc">LSTM-based deep learning model to predict Apple (AAPL) stock prices using 10 years of historical data fetched via yfinance. Trained on 60-day lookback windows to capture sequential patterns in closing prices.</div>
           <div class="project-metrics"><span class="metric">R² 0.88</span><span class="metric">MAE 6.32</span><span class="metric">RMSE 8.06</span></div>
@@ -512,8 +576,10 @@ footer{border-top:1px solid var(--border);padding:2rem 4rem;display:flex;justify
           </div>
         </div>
       </div>
-
     </div>
+
+      
+      
   </div>
 </section>
 
@@ -620,6 +686,58 @@ footer{border-top:1px solid var(--border);padding:2rem 4rem;display:flex;justify
 </footer>
 
 <script>
+/* ── TYPED NAME EFFECT ── */
+const typedEl = document.getElementById('typed-name');
+
+const fontCycles = [
+  { cls: 'font-syne',     name: 'Sunilraj D' },
+  { cls: 'font-jakarta',  name: 'Sunilraj D' },
+  { cls: 'font-playfair', name: 'Sunilraj D' },
+  { cls: 'font-space',    name: 'Sunilraj D' },
+  { cls: 'font-outfit',   name: 'Sunilraj D' },
+  { cls: 'font-mono-dm',  name: 'Sunilraj D' },
+];
+
+let cycleIndex = 0;
+const TYPE_SPEED  = 75;
+const ERASE_SPEED = 40;
+const HOLD_TIME   = 1800;
+const PAUSE_TIME  = 180;
+
+function typeName(text, cb) {
+  let i = 0;
+  (function step() {
+    typedEl.textContent = text.slice(0, ++i);
+    if (i < text.length) setTimeout(step, TYPE_SPEED);
+    else cb();
+  })();
+}
+
+function eraseName(cb) {
+  (function step() {
+    const t = typedEl.textContent;
+    if (!t.length) { cb(); return; }
+    typedEl.textContent = t.slice(0, -1);
+    setTimeout(step, ERASE_SPEED);
+  })();
+}
+
+function runCycle() {
+  const { cls, name } = fontCycles[cycleIndex];
+  typedEl.className = cls;
+  typeName(name, () => {
+    setTimeout(() => {
+      eraseName(() => {
+        cycleIndex = (cycleIndex + 1) % fontCycles.length;
+        setTimeout(runCycle, PAUSE_TIME);
+      });
+    }, HOLD_TIME);
+  });
+}
+
+setTimeout(runCycle, 500);
+
+/* ── CERTIFICATES ── */
 const certs = [
   {org:'NPTEL',name:'Python for Data Science',detail:'Top 2% · Score 83%',img:'certs/nptel_python.jpg'},
   {org:'NPTEL',name:'C Programming',detail:'Score 78%',img:'certs/nptel_c.jpg'},
@@ -630,14 +748,14 @@ const certs = [
 ];
 
 let currentCert = 0;
-const modal = document.getElementById('certModal');
-const modalOrg = document.getElementById('modalOrg');
-const modalTitle = document.getElementById('modalTitle');
+const modal       = document.getElementById('certModal');
+const modalOrg    = document.getElementById('modalOrg');
+const modalTitle  = document.getElementById('modalTitle');
 const modalDetail = document.getElementById('modalDetail');
-const modalImg = document.getElementById('modalImg');
-const modalCounter = document.getElementById('modalCounter');
-const modalPrev = document.getElementById('modalPrev');
-const modalNext = document.getElementById('modalNext');
+const modalImg    = document.getElementById('modalImg');
+const modalCounter= document.getElementById('modalCounter');
+const modalPrev   = document.getElementById('modalPrev');
+const modalNext   = document.getElementById('modalNext');
 
 function openModal(idx) {
   currentCert = idx;
@@ -645,19 +763,17 @@ function openModal(idx) {
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
-
 function updateModal() {
   const c = certs[currentCert];
-  modalOrg.textContent = c.org;
+  modalOrg.textContent   = c.org;
   modalTitle.textContent = c.name;
-  modalDetail.textContent = c.detail;
-  modalImg.src = c.img;
-  modalImg.alt = c.name;
+  modalDetail.textContent= c.detail;
+  modalImg.src           = c.img;
+  modalImg.alt           = c.name;
   modalCounter.textContent = `${currentCert + 1} / ${certs.length}`;
   modalPrev.disabled = currentCert === 0;
   modalNext.disabled = currentCert === certs.length - 1;
 }
-
 function closeModal() {
   modal.classList.remove('open');
   document.body.style.overflow = '';
@@ -666,7 +782,6 @@ function closeModal() {
 document.querySelectorAll('.cert-card').forEach(card => {
   card.addEventListener('click', () => openModal(parseInt(card.dataset.cert)));
 });
-
 document.getElementById('modalClose').addEventListener('click', closeModal);
 modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
 modalPrev.addEventListener('click', () => { if (currentCert > 0) { currentCert--; updateModal(); } });
@@ -674,33 +789,36 @@ modalNext.addEventListener('click', () => { if (currentCert < certs.length - 1) 
 document.addEventListener('keydown', e => {
   if (!modal.classList.contains('open')) return;
   if (e.key === 'Escape') closeModal();
-  if (e.key === 'ArrowLeft' && currentCert > 0) { currentCert--; updateModal(); }
-  if (e.key === 'ArrowRight' && currentCert < certs.length - 1) { currentCert++; updateModal(); }
+  if (e.key === 'ArrowLeft'  && currentCert > 0)               { currentCert--; updateModal(); }
+  if (e.key === 'ArrowRight' && currentCert < certs.length - 1){ currentCert++; updateModal(); }
 });
 
+/* ── CURSOR ── */
 const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursor-ring');
-const glow = document.getElementById('glow');
+const ring   = document.getElementById('cursor-ring');
+const glow   = document.getElementById('glow');
 document.addEventListener('mousemove', e => {
   cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
+  cursor.style.top  = e.clientY + 'px';
   setTimeout(() => { ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px'; }, 80);
   glow.style.left = e.clientX + 'px';
-  glow.style.top = e.clientY + 'px';
+  glow.style.top  = e.clientY + 'px';
 });
 document.querySelectorAll('a, button, .cert-card, .skill-card, .project-card').forEach(el => {
   el.addEventListener('mouseenter', () => { ring.style.transform = 'translate(-50%,-50%) scale(1.8)'; ring.style.borderColor = 'var(--accent2)'; });
-  el.addEventListener('mouseleave', () => { ring.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.borderColor = 'var(--accent)'; });
+  el.addEventListener('mouseleave', () => { ring.style.transform = 'translate(-50%,-50%) scale(1)';   ring.style.borderColor = 'var(--accent)'; });
 });
 
+/* ── SCROLL REVEAL ── */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+/* ── EV BARS ── */
 const bars = document.getElementById('ev-bars');
 if (bars) {
-  const vals = [65, 80, 88, 93, 94];
+  const vals   = [65, 80, 88, 93, 94];
   const labels = ['LR','RF','XGB','LSTM','NLP+'];
   vals.forEach((v, i) => {
     const wrap = document.createElement('div');
@@ -715,29 +833,28 @@ if (bars) {
   });
 }
 
-// Results accordion
+/* ── RESULTS ACCORDION ── */
 document.querySelectorAll('.results-toggle').forEach(btn => {
   btn.addEventListener('click', e => {
     e.stopPropagation();
     const targetId = btn.dataset.target;
-    const strip = document.getElementById(targetId);
-    const isOpen = strip.classList.contains('open');
-    // Close all strips first
+    const strip    = document.getElementById(targetId);
+    const isOpen   = strip.classList.contains('open');
     document.querySelectorAll('.results-strip').forEach(s => s.classList.remove('open'));
     document.querySelectorAll('.results-toggle').forEach(b => b.classList.remove('open'));
-    // Open clicked one if it was closed
     if (!isOpen) {
       strip.classList.add('open');
       btn.classList.add('open');
-      setTimeout(() => strip.scrollIntoView({behavior:'smooth', block:'nearest'}), 300);
+      setTimeout(() => strip.scrollIntoView({ behavior:'smooth', block:'nearest' }), 300);
     }
   });
 });
 
+/* ── SMOOTH SCROLL ── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     e.preventDefault();
-    document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+    document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior:'smooth' });
   });
 });
 </script>
